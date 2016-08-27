@@ -1,0 +1,46 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+div#makerBox {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+div#settingsBox {
+  height: 100%;
+  width: 50%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+div#usedNotes {
+  height: calc(100% - 200px);
+  overflow-y: auto;
+}
+img.usedNote {
+  width: 100px;
+  display: block;
+  margin: 10px auto;
+}
+div#optionsBox {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+img.option {
+  width: 100px;
+  margin: 10px;
+  cursor: pointer;
+}
+img#playButton {
+  width: 100%;
+}
+img#stopButton {
+  width: 100%;
+}
