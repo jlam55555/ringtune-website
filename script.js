@@ -61,6 +61,7 @@ $(function() {
     }))
       $("#optionsBox").append("<img data-value='" + value + "' class='option' src='res/icons/" + value + ".png'>");
     used.push(current);
+    makeURL();
     $("#usedNotes").prepend("<div><img data-index='" + (used.length-1) + "' class='deleteButton' src='res/icons/close.png'><img class='usedNote' data-value='" + current + "' src='res/icons/" + current + ".png'></div>");
     setAsActive(used.length-1);
   });
@@ -152,6 +153,11 @@ $(function() {
     $(this).children().last().toggleClass("noBan");
     playMelody = !playMelody;
   });
+
+  // SAVE CHORDS
+  var makeURL = function() {
+    window.history.pushState({},"RingTune","#"+encodeURIComponent(used.join(",")));
+  };
   
   // ATTEMPT TO USE THE API
   /*$.ajax({
