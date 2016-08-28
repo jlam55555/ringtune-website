@@ -12,6 +12,10 @@ img#backgroundLogo {
   position: absolute;
   z-index: -1;
 }
+img#loadingLogo {
+  position: absolute;
+  z-index: 1000;
+}
 div#settingsBox {
   height: 100%;
   width: 200px;

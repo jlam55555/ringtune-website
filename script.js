@@ -100,11 +100,16 @@ $(function() {
 
   // BACKGROUND IMAGE REPOSITIONING
   $(window).resize(function() {
+    $("img#loadingLogo").css({
+      top: ($(window).height()-$("img#loadingLogo").height())/2+"px",
+      left: ($(window).width()-$("img#loadingLogo").width())/2+"px"
+    });
     $("img#backgroundLogo").css({
       top: ($(window).height()-$("img#backgroundLogo").height())/2+"px",
       left: ($(window).width()-$("img#backgroundLogo").width())/2+"px"
     });
   }).resize();
+  $("img#loadingLogo").fadeOut(1500);
 
   // PLAY NOTE IF CLICKED ON (USED LIST)
   $(document).on("click", "img.usedNote", function() {
