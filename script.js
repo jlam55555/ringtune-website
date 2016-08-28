@@ -89,8 +89,10 @@ $(function() {
 
   // ATTEMPT TO USE THE API
   $.ajax({
-    url: "https://api.hooktheory.com/v1/trends/nodes&callback=?",
-    type: "GET",
+    url: "https://api.hooktheory.com/v1/trends/nodes",
+    data: {"cp": "4,2,4"},
+    method: "GET",
+    dataType: "json",
     headers: {
       "Authorizaton": "Bearer 7008700b22ddff662480256fb05e79c1",
       "Accept": "application/json",
