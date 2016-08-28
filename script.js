@@ -140,6 +140,7 @@ $(function() {
   // TEMPO CONTROL
   $("#tempoRange").on("input", function() {
     $("#tempoValue").text($(this).val());
+    makeURL();
   });
 
   // BACKGROUND IMAGE REPOSITIONING
@@ -178,6 +179,7 @@ $(function() {
   $("#melodyButton").click(function() {
     $(this).children().last().toggleClass("noBan");
     playMelody = !playMelody;
+    makeURL();
   });
 
   // SAVE CHORDS
