@@ -126,6 +126,10 @@ $(function() {
     }
   }
 
+  // SETTINGS BY URL IF APPLICABLE
+  if(urlParam("s"))
+    $("#tempoRange").val(parseInt(urlParam("s")));
+
   // CLEAR BUTTONS
   $("#closeButton").click(function() {
     if(confirm("Are you sure you want to delete your current RingTune?")) {
