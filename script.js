@@ -106,6 +106,7 @@ $(function() {
   $("#closeButton").click(function() {
     if(confirm("Are you sure you want to delete your current RingTune?")) {
       used = [];
+      makeURL();
       current = "I";
       $("div#usedNotes").empty();
       $("div#optionsBox").html("<img class='option' data-value='I' src='res/icons/I.png'>");
@@ -141,6 +142,7 @@ $(function() {
     if(used.length <= 1)
       return;
     used.splice(parseInt($(this).data("index")), 1);
+    makeURL();
     $(this).parent().remove();
     var elems = document.getElementsByClassName("deleteButton");
     for(var i = elems.length-1; i >= 0; i--) {
@@ -156,8 +158,13 @@ $(function() {
 
   // SAVE CHORDS
   var makeURL = function() {
-    window.history.pushState({},"RingTune","#"+encodeURIComponent(used.join(",")));
+    window.history.pushState({},"RingTune","/index.html#"+encodeURIComponent(used.join(",")));
   };
+
+  // INFO BUBBLE POPUP
+  $("#infoButton").click(function() {
+    alert("Aspiring DJ, but don't have any inspiration? Have a tune in your head, but not the musical know how to play it out loud? RingTune is a simple chord progression builder intended for everyone, of all levels of musical expertise. Sifting through common chord progressions of hundreds of pop songs(so far), RingTune will suggest chords that sound good to the human ear when played together. Think of it as predictive text for music.\n\nFor those that don't have any idea already in mind, or just looking for inspiration, you can randomly generate strings of chord progressions, and select and trim what you like best.");
+  });
   
   // ATTEMPT TO USE THE API
   /*$.ajax({

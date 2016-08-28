@@ -111,6 +111,12 @@ i#melodyButton > .fa-ban {
 i#melodyButton > .fa-ban.noBan {
   display: none;
 }
+i#infoButton {
+  font-size: 20px;
+  width: auto;
+  height: auto;
+  line-height: 20px;
+}
 div#tempo {
   font-size: 20px;
   font-family: verdana;
