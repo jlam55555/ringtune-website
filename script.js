@@ -105,8 +105,15 @@ $(function() {
   // FILL IN BY URL
   var url = window.location.href;
   if(url.indexOf("#") >= 0) {
-    var arr = decodeURIComponent(url.substring(url.indexOf("#")+1,url.length-1)).split(",");
-    alert(arr);
+    used = decodeURIComponent(url.substring(url.indexOf("#")+1,url.length)).split(",");
+    for(let i = 0; i < used.length; i++) {
+      $("#usedNotes").prepend("<div><img data-index='" + i + "' class='deleteButton' src='res/icons/close.png'><img class='usedNote' data-value='" + used[i] + "' src='res/icons/" + used[i] + ".png'></div>");
+    }
+    for(let val of progressions[used[used.length-1]].filter(function(value, index, array) {
+      return index == 0 || value != array[index-1];
+    })) {
+      $("#optionsBox").append("<img data-value='" + val + "' class='option' src='res/icons/" + val + ".png'>");
+    }
   }
 
   // CLEAR BUTTONS
