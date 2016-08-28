@@ -15,7 +15,28 @@ $(function() {
     "VIb": ["iv","III"],
     "VIIb": ["i"]
   };
-  var playChord = function(note) { new Audio("res/sound/" + note + ".mp3").play(); };
+  var playChord = function(note) {
+    var chord;
+    switch(note) {
+      case "I": chord = ["I","III","V"]; break;
+      case "i": chord = ["I","IIIb","V"]; break;
+      case "ii": chord = ["II","IV","VI"]; break;
+      case "III": chord = ["III","VIb","VII"]; break;
+      case "iii": chord = ["III","V","VII"]; break;
+      case "IV": chord = ["IV","VI","I2"]; break;
+      case "iv": chord = ["IV","VIb","I2"]; break;
+      case "V": chord = ["V","VII","II"]; break;
+      case "vi": chord = ["VI","IIb","III"]; break;
+      case "VIb": chord = ["VIb","VII","IIIb"]; break;
+      case "VIIb": chord = ["VIIb","II","IV"]; break;
+    }
+    new Audio("res/sound/" + note + ".mp3").play();
+    for(let i = 0; i < 3; i++) {
+      setTimeout(function() {
+        new Audio("res/sound/" + chord[Math.floor(Math.random()*3)] + ".wav").play();
+      }, getLength()/4*(1.3+i));
+    }
+  };
   var getLength = function() { return 60000/parseInt($("#tempoRange").val()); };
   var used = [];
   var current = "I";
@@ -30,7 +51,7 @@ $(function() {
     }))
       $("#optionsBox").append("<img data-value='" + value + "' class='option' src='res/icons/" + value + ".png'>");
     used.push(current);
-    $("#usedNotes").prepend("<img class='usedNote' data-value='" + current + "' src='res/icons/" + current + ".png'>");
+    $("#usedNotes").prepend("<div><img data-index='" + (used.length-1) + "' class='deleteButton' src='res/icons/close.png'><img class='usedNote' data-value='" + current + "' src='res/icons/" + current + ".png'></div>");
   });
 
   // PLAY AND STOP THE MUSIC
@@ -87,8 +108,20 @@ $(function() {
     playChord($(this).data("value"));    
   });
 
+  // ALLOW DELETION OF ELEMENTS
+  $(document).on("click", "img.deleteButton", function() {
+    if(used.length <= 1)
+      return;
+    used.splice(parseInt($(this).data("index")), 1);
+    $(this).parent().remove();
+    var elems = document.getElementsByClassName("deleteButton");
+    for(var i = elems.length-1; i >= 0; i--) {
+      elems[i].setAttribute("data-index", i);
+    }
+  });
+  
   // ATTEMPT TO USE THE API
-  $.ajax({
+  /*$.ajax({
     url: "https://api.hooktheory.com/v1/trends/nodes",
     data: {"cp": "4,2,4"},
     method: "GET",
@@ -101,6 +134,6 @@ $(function() {
     success: function(data) {
       console.log(data);
     }
-  });
+  });*/
 
 });

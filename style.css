@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 img#backgroundLogo {
   width: calc(100% - 450px);
@@ -31,12 +32,25 @@ div#usedNotes {
   width: calc(100% - 400px);
   float: left;
   overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 img.usedNote {
   width: 100px;
   display: block;
   margin: 10px auto;
   cursor: pointer;
+}
+img.deleteButton {
+  opacity: 0;
+  position: absolute;
+  left: calc(50% - 150px);
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+img.deleteButton:hover {
+  opacity: 1;
 }
 div#optionsBox {
   width: 200px;
