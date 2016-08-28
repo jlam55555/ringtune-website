@@ -172,7 +172,7 @@ $(function() {
 
   // SAVE CHORDS
   var makeURL = function() {
-    //window.history.pushState({},"RingTune","/index.html#"+encodeURIComponent(used.join(",")));
+    window.history.pushState({},"RingTune","/index.html#"+encodeURIComponent(used.join(",")));
   };
 
   // INFO BUBBLE POPUP
