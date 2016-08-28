@@ -127,8 +127,10 @@ $(function() {
   }
 
   // SETTINGS BY URL IF APPLICABLE
-  if(urlParam("s"))
+  if(urlParam("s")) {
     $("#tempoRange").val(parseInt(urlParam("s")));
+    $("#tempoRange").input();
+  }
 
   // CLEAR BUTTONS
   $("#closeButton").click(function() {
