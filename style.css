@@ -5,16 +5,12 @@ html, body {
   box-sizing: border-box;
 }
 img#backgroundLogo {
-  height: 100%;
-  width: calc(100% - 200px);
+  width: calc(100% - 450px);
   opacity: 0.1;
   position: absolute;
+  left: 225px;
+  right: 225px;
   z-index: -1;
-}
-div#makerBox {
-  width: calc(100% - 200px);
-  height: 100%;
-  float: left;
 }
 div#settingsBox {
   height: 100%;
@@ -25,44 +21,41 @@ div#settingsBox {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: #eeeeee;
+}
+div#optionsBox {
+  width: calc(100% - 400px);
+  float: left;
 }
 div#usedNotes {
-  height: calc(100% - 200px);
+  height: 100%;
+  width: calc(100% - 400px);
+  float: left;
   overflow-y: auto;
-}
-div#usedNotes::after {
-  position: absolute;
-  display: block;
-  content: " ";
-  width: calc(100% - 200px);
-  left: 0;
-  bottom: 200px;
-  height: 20px;
-  background-image: linear-gradient(to top, white 0px, rgba(255,255,255,0) 20px);
 }
 img.usedNote {
   width: 100px;
   display: block;
   margin: 10px auto;
+  cursor: pointer;
 }
 div#optionsBox {
-  height: 200px;
+  width: 200px;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
 }
 img.option {
-  width: 100px;
-  margin: 10px;
+  width: 75px;
+  height: 75px;
+  margin: 10px 0;
   cursor: pointer;
 }
 div#settingsBox > * {
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  width: 75px;
+  height: 75px;
+  margin: 10px 0;
 }
 div#tempo {
   text-align: center;
