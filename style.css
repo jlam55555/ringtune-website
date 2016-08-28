@@ -4,6 +4,13 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+img#backgroundLogo {
+  height: 100%;
+  width: calc(100% - 200px);
+  opacity: 0.1;
+  position: absolute;
+  z-index: -1;
+}
 div#makerBox {
   width: calc(100% - 200px);
   height: 100%;
@@ -24,6 +31,16 @@ div#usedNotes {
   height: calc(100% - 200px);
   overflow-y: auto;
 }
+div#usedNotes::after {
+  position: absolute;
+  display: block;
+  content: " ";
+  width: calc(100% - 200px);
+  left: 0;
+  bottom: 200px;
+  height: 20px;
+  background-image: linear-gradient(to top, white 0px, rgba(255,255,255,0) 20px);
+}
 img.usedNote {
   width: 100px;
   display: block;
@@ -35,14 +52,21 @@ div#optionsBox {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 img.option {
   width: 100px;
   margin: 10px;
   cursor: pointer;
 }
-div#settingsBox > img {
+div#settingsBox > * {
   width: 100px;
   height: 100px;
   margin: 10px;
+}
+div#tempo {
+  text-align: center;
+}
+div#tempo > input {
+  width: 100%;
 }
