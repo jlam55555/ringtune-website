@@ -89,19 +89,16 @@ $(function() {
 
   // ATTEMPT TO USE THE API
   $.ajax({
-    url: "https://api.hooktheory.com/v1/trends/nodes?cp=4,2,4&callback=test",
+    url: "https://api.hooktheory.com/v1/trends/nodes?cp=4,2,4",
     type: "GET",
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorizaton", "Bearer 7008700b22ddff662480256fb05e79c1");
-      xhr.setRequestHeader("Accept", "application/json");
-      xhr.setRequestHeader("Content-Type", "application/json");
+    headers: {
+      "Authorizaton": "Bearer 7008700b22ddff662480256fb05e79c1",
+      "Accept": "application/json",
+      "Content-Type": "application/json"
     },
     success: function(data) {
       console.log(data);
     }
   });
-  function test(data) {
-    console.log("test");
-  }
 
 });
