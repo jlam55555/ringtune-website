@@ -124,13 +124,7 @@ $(function() {
     })) {
       $("#optionsBox").append("<img data-value='" + val + "' class='option' src='res/icons/" + val + ".png'>");
     }
-  }
-
-  // SETTINGS BY URL IF APPLICABLE
-  if(urlParam("s")) {
-    $("#tempoRange").val(parseInt(urlParam("s")));
-    $("#tempoRange").trigger("input");
-  }
+  } 
 
   // CLEAR BUTTONS
   $("#closeButton").click(function() {
@@ -203,7 +197,17 @@ $(function() {
   // SHARE BUBBLE POPUP
   $("#exportButton").click(function() {
     prompt("Copy the below URL to save or share this RingTune.", window.location.href);
-  });
+  }
+
+  // SETTINGS BY URL IF APPLICABLE
+  if(urlParam("s")) {
+    $("#tempoRange").val(parseInt(urlParam("s")));
+    $("#tempoRange").trigger("input");
+  }
+  if(urlParam("m")) {
+    if(urlParam("m") == "1")
+      $("#melodyButton").click(); 
+  }
   
   // ATTEMPT TO USE THE API
   /*$.ajax({
