@@ -103,9 +103,18 @@ $(function() {
   });
 
   // FILL IN BY URL
-  var url = window.location.href;
-  if(url.indexOf("#") >= 0) {
-    used = decodeURIComponent(url.substring(url.indexOf("#")+1,url.length)).split(",");
+  // parameter get function from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+  function urlParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+  var sequence = urlParam("rt");
+  if(sequence) {
+    used = sequence.split(",");
     for(let i = 0; i < used.length; i++) {
       $("#usedNotes").prepend("<div><img data-index='" + i + "' class='deleteButton' src='res/icons/close.png'><img class='usedNote' data-value='" + used[i] + "' src='res/icons/" + used[i] + ".png'></div>");
     }
@@ -172,7 +181,11 @@ $(function() {
 
   // SAVE CHORDS
   var makeURL = function() {
-    window.history.pushState({},"RingTune","./index.html#"+encodeURIComponent(used.join(",")));
+    window.history.pushState({},"RingTune",
+      "./index.html?rt" + encodeURIComponent(used.join(",")) +
+      "&s=" + $("#tempoRange").val() +
+      "&m=" + (playMelody?1:0)
+    );
   };
 
   // INFO BUBBLE POPUP
