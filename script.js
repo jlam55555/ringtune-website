@@ -182,7 +182,7 @@ $(function() {
   // SAVE CHORDS
   var makeURL = function() {
     window.history.pushState({},"RingTune",
-      "./index.html?rt" + encodeURIComponent(used.join(",")) +
+      "./index.html?rt=" + encodeURIComponent(used.join(",")) +
       "&s=" + $("#tempoRange").val() +
       "&m=" + (playMelody?1:0)
     );
