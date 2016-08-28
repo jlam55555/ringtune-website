@@ -39,4 +39,17 @@ $(function() {
       clearTimeout(i);
     playTimeouts = [];
   }); 
+  $("#randomButton").click(function() {
+    for(let i = 0; i < 10; i++) {
+      if(used.length == 0) {
+        $("img.option").click();
+        continue;
+      }
+      setTimeout(function() {
+        var progression = progressions[used[used.length-1]];
+        used.push(progression[Math.floor(Math.random()*progression.length)]);
+        $("img.option[data-value=" + used[used.length-1] + "]").click();
+      }, i*200);
+    }
+  });
 });

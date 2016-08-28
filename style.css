@@ -5,17 +5,20 @@ html, body {
   box-sizing: border-box;
 }
 div#makerBox {
-  width: 50%;
+  width: calc(100% - 200px);
   height: 100%;
   float: left;
 }
 div#settingsBox {
   height: 100%;
-  width: 50%;
+  width: 200px;
   float: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #eeeeee;
 }
 div#usedNotes {
   height: calc(100% - 200px);
@@ -38,9 +41,8 @@ img.option {
   margin: 10px;
   cursor: pointer;
 }
-img#playButton {
-  width: 100%;
-}
-img#stopButton {
-  width: 100%;
+div#settingsBox > img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
 }
