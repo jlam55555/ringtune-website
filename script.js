@@ -207,9 +207,8 @@ $(function() {
     $("#tempoRange").trigger("input");
   }
   if(urlParam("m")) {
-    alert(urlParam("m"));
     if(urlParam("m") == "1")
-      $("#melodyButton").click(); 
+      setTimeout(function() { $("#melodyButton").click(); }, 0);
   }
   
   // ATTEMPT TO USE THE API
