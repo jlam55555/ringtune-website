@@ -111,7 +111,7 @@ i#melodyButton > .fa-ban {
 i#melodyButton > .fa-ban.noBan {
   display: none;
 }
-i#infoButton {
+div#settingsBox > div:last-child, i#infoButton, i#exportButton {
   font-size: 20px;
   width: auto;
   height: auto;

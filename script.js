@@ -177,7 +177,12 @@ $(function() {
 
   // INFO BUBBLE POPUP
   $("#infoButton").click(function() {
-    alert("Aspiring DJ, but don't have any inspiration? Have a tune in your head, but not the musical know how to play it out loud? RingTune is a simple chord progression builder intended for everyone, of all levels of musical expertise. Sifting through common chord progressions of hundreds of pop songs(so far), RingTune will suggest chords that sound good to the human ear when played together. Think of it as predictive text for music.\n\nFor those that don't have any idea already in mind, or just looking for inspiration, you can randomly generate strings of chord progressions, and select and trim what you like best.");
+    alert("Aspiring DJ, but don't have any inspiration? Have a tune in your head, but not the musical know how to play it out loud? RingTune is a simple chord progression builder intended for everyone, of all levels of musical expertise. Sifting through common chord progressions of hundreds of pop songs(so far), RingTune will suggest chords that sound good to the human ear when played together. Think of it as predictive text for music.\n\nFor those that don't have any idea already in mind, or just looking for inspiration, you can randomly generate strings of chord progressions, and select and trim what you like best.\n\nCreated by Asteroid LLC at LIHacks.");
+  });
+
+  // SHARE BUBBLE POPUP
+  $("#exportButton").click(function() {
+    prompt("Copy the below URL to save or share this RingTune.", window.location.href);
   });
   
   // ATTEMPT TO USE THE API
