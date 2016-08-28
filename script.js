@@ -16,6 +16,12 @@ $(function() {
     "VIIb": ["i"]
   };
   var playMelody = false;
+  var setAsActive = function(index) {
+    $("img[data-index=" + index + "]").parent().addClass("active");
+    setTimeout(function() {
+      $("img[data-index=" + index + "]").parent().removeClass("active");
+    }, 1100);
+  };
   var playChord = function(note) {
     new Audio("res/sound/" + note + ".mp3").play();
     if(!playMelody)
@@ -55,6 +61,7 @@ $(function() {
       $("#optionsBox").append("<img data-value='" + value + "' class='option' src='res/icons/" + value + ".png'>");
     used.push(current);
     $("#usedNotes").prepend("<div><img data-index='" + (used.length-1) + "' class='deleteButton' src='res/icons/close.png'><img class='usedNote' data-value='" + current + "' src='res/icons/" + current + ".png'></div>");
+    setAsActive(used.length-1);
   });
 
   // PLAY AND STOP THE MUSIC
@@ -82,6 +89,7 @@ $(function() {
         var progression = progressions[used[used.length-1]];
         var currentValue = progression[Math.floor(Math.random()*progression.length)];
         $("img.option[data-value=" + currentValue + "]").click();
+        setAsActive(used.length-1);
       }, i*getLength());
     }
   });
@@ -117,6 +125,7 @@ $(function() {
   // PLAY NOTE IF CLICKED ON (USED LIST)
   $(document).on("click", "img.usedNote", function() {
     playChord($(this).data("value"));    
+    setAsActive(parseInt($(this).prev().data("index")));
   });
 
   // ALLOW DELETION OF ELEMENTS
