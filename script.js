@@ -49,6 +49,15 @@ $(function() {
   var getLength = function() { return 60000/parseInt($("#tempoRange").val()); };
   var used = [];
   var current = "I";
+  // parameter get function from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+  function urlParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
 
   // HANDLE CLICK OF OPTIONS
   $("#optionsBox").on("click", "img.option", function(event) {
@@ -72,7 +81,8 @@ $(function() {
     $("#playButton").addClass("active");
     for(let i = 0; i < used.length; i++)
       playTimeouts[i] = setTimeout(function() { playChord(used[i]); setAsActive(i); }, i*getLength());
-    playTimeouts.push(setTimeout(function() { $("#playButton").click(); }, used.length*getLength()));
+    var extra = urlParam("e") && urlParam("e") == "1" ? 1 : 0;
+    playTimeouts.push(setTimeout(function() { $("#playButton").click(); }, (used.length+extra)*getLength()));
   });
   $("#stopButton").click(function() {
     $("#playButton").removeClass("active");
@@ -103,15 +113,6 @@ $(function() {
   });
 
   // FILL IN BY URL
-  // parameter get function from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-  function urlParam(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-  }
   var sequence = urlParam("rt");
   if(sequence) {
     used = sequence.split(",");
