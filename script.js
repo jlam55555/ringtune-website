@@ -70,7 +70,7 @@ $(function() {
   $("#playButton").click(function() {
     $("#playButton").addClass("active");
     for(let i = 0; i < used.length; i++)
-      playTimeouts[i] = setTimeout(function() { playChord(used[i]); }, i*getLength());
+      playTimeouts[i] = setTimeout(function() { playChord(used[i]); setAsActive(i); }, i*getLength());
     playTimeouts.push(setTimeout(function() { $("#playButton").click(); }, used.length*getLength()));
   });
   $("#stopButton").click(function() {
