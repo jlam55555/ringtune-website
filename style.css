@@ -77,8 +77,13 @@ div#optionsBox {
 img.option {
   width: 75px;
   height: 75px;
-  margin: 10px 0;
+  margin: 0;
+  padding: 10px;
   cursor: pointer;
+  border-radius: 5px;
+}
+img.option:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 div#settingsBox > * {
   display: inline-block;
@@ -87,8 +92,16 @@ div#settingsBox > * {
   font-size: 75px;
   line-height: 75px;
   text-align: center;
-  margin: 10px 0;
+  margin: 0;
   color: #e9e9e9;
+  border-radius: 5px;
+  padding: 10px;
+}
+div#settingsBox > *:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+i#playButton.active {
+  background-color: rgba(100,255,100,0.1);
 }
 i#melodyButton > .fa-ban {
   color: #e74c3c;

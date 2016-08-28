@@ -67,12 +67,13 @@ $(function() {
   // PLAY AND STOP THE MUSIC
   var playTimeouts = [];
   $("#playButton").click(function() {
-    if(playTimeouts.length > 0) $("#stopButton").click();
+    $("#playButton").addClass("active");
     for(let i = 0; i < used.length; i++)
       playTimeouts[i] = setTimeout(function() { playChord(used[i]); }, i*getLength());
     playTimeouts.push(setTimeout(function() { $("#playButton").click(); }, used.length*getLength()));
   });
   $("#stopButton").click(function() {
+    $("#playButton").removeClass("active");
     for(var i of playTimeouts)
       clearTimeout(i);
     playTimeouts = [];
