@@ -102,6 +102,13 @@ $(function() {
     }, 10*getLength());
   });
 
+  // FILL IN BY URL
+  var url = window.location.href;
+  if(url.indexOf("#") >= 0) {
+    var arr = decodeURIComponent(url.substring(url.indexOf("#")+1,url.length-1)).split(",");
+    alert(arr);
+  }
+
   // CLEAR BUTTONS
   $("#closeButton").click(function() {
     if(confirm("Are you sure you want to delete your current RingTune?")) {
