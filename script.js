@@ -202,14 +202,13 @@ $(function() {
   });
 
   // SETTINGS BY URL IF APPLICABLE
+  var m = urlParam("m");
   if(urlParam("s")) {
     $("#tempoRange").val(parseInt(urlParam("s")));
     $("#tempoRange").trigger("input");
   }
-  if(urlParam("m")) {
-    if(urlParam("m") == "1")
-      setTimeout(function() { $("#melodyButton").click(); }, 0);
-  }
+  if(m && m == 1)
+    $("#melodyButton").click(); 
   
   // ATTEMPT TO USE THE API
   /*$.ajax({
