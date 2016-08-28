@@ -12,7 +12,7 @@ $(function() {
     "iv": ["i","VIIb"],
     "V": ["I","I","I","I","I","vi","vi","i","IV"],
     "vi": ["IV","IV","iii"],
-    "VIb": ["iv","III"],
+    "VIb": ["iv"/*,"III"*/],
     "VIIb": ["i"]
   };
   var playMelody = false;
