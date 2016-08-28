@@ -197,7 +197,7 @@ $(function() {
   // SHARE BUBBLE POPUP
   $("#exportButton").click(function() {
     prompt("Copy the below URL to save or share this RingTune.", window.location.href);
-  }
+  });
 
   // SETTINGS BY URL IF APPLICABLE
   if(urlParam("s")) {
