@@ -58,6 +58,7 @@ $(function() {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
+  var extra = urlParam("e") && urlParam("e") == "1" ? 1 : 0;
 
   // HANDLE CLICK OF OPTIONS
   $("#optionsBox").on("click", "img.option", function(event) {
@@ -81,7 +82,6 @@ $(function() {
     $("#playButton").addClass("active");
     for(let i = 0; i < used.length; i++)
       playTimeouts[i] = setTimeout(function() { playChord(used[i]); setAsActive(i); }, i*getLength());
-    var extra = urlParam("e") && urlParam("e") == "1" ? 1 : 0;
     playTimeouts.push(setTimeout(function() { $("#playButton").click(); }, (used.length+extra)*getLength()));
   });
   $("#stopButton").click(function() {
