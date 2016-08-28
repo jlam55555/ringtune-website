@@ -89,7 +89,7 @@ $(function() {
 
   // ATTEMPT TO USE THE API
   $.ajax({
-    url: "https://api.hooktheory.com/v1/trends/nodes?cp=4,2,4",
+    url: "https://api.hooktheory.com/v1/trends/nodes&callback=?",
     type: "GET",
     headers: {
       "Authorizaton": "Bearer 7008700b22ddff662480256fb05e79c1",
