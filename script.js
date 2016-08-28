@@ -51,9 +51,10 @@ $(function() {
   var current = "I";
 
   // HANDLE CLICK OF OPTIONS
-  $("#optionsBox").on("click", "img.option", function() {
+  $("#optionsBox").on("click", "img.option", function(event) {
     current = $(this).data("value");
-    playChord(current);
+    if(playTimeouts.length == 0 && (!isSelecting || event.originalEvent == undefined))
+      playChord(current);
     $("#optionsBox").empty();
     for(var value of progressions[current].filter(function(value, index, array) {
       return index == 0 || value != array[index-1];
@@ -80,7 +81,9 @@ $(function() {
   }); 
 
   // RANDOMLY SELECT OPTIONS
+  var isSelecting = false;
   $("#randomButton").click(function() {
+    isSelecting = true;
     for(let i = 0; i < 10; i++) {
       if(used.length == 0) {
         $("img.option").click();
@@ -93,6 +96,9 @@ $(function() {
         setAsActive(used.length-1);
       }, i*getLength());
     }
+    setTimeout(function() {
+      isSelecting = false;
+    }, 10*getLength());
   });
 
   // CLEAR BUTTONS
