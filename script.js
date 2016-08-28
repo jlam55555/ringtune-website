@@ -100,7 +100,10 @@ $(function() {
 
   // BACKGROUND IMAGE REPOSITIONING
   $(window).resize(function() {
-    $("img#backgroundLogo").css("top", ($(window).height()-$("img#backgroundLogo").height())/2+"px");
+    $("img#backgroundLogo").css({
+      top: ($(window).height()-$("img#backgroundLogo").height())/2+"px",
+      left: ($(window).width()-$("img#backgroundLogo").width())/2+"px"
+    });
   }).resize();
 
   // PLAY NOTE IF CLICKED ON (USED LIST)

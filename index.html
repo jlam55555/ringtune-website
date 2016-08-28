@@ -3,20 +3,21 @@
   <head>
     <title>RingTune</title> 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://use.fontawesome.com/a46f002d02.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <img src="res/ringtune.png" id="backgroundLogo">
+    <img src="res/background.png" id="backgroundLogo">
     <div id="optionsBox">
       <img class="option" data-value="I" src="res/icons/I.png">
     </div>
     <div id="usedNotes"></div>
     <div id="settingsBox">
-      <img id="playButton" src="res/icons/play.png">
-      <img id="stopButton" src="res/icons/stop.png">
-      <img id="randomButton" src="res/icons/random.png">
-      <img id="closeButton" src="res/icons/close.png">
+      <i id="playButton" class="fa fa-play-circle"></i>
+      <i id="stopButton" class="fa fa-stop-circle"></i>
+      <i id="playButton" class="fa fa-random"></i>
+      <i id="playButton" class="fa fa-times-circle"></i>
       <div id="tempo"><span id="tempoValue">30</span>bpm<br><input type="range" id="tempoRange" value="30" max="120" min="10" step="10"></div>
     </div>
   </body>

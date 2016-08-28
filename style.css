@@ -6,11 +6,7 @@ html, body {
   overflow: hidden;
 }
 img#backgroundLogo {
-  width: calc(100% - 450px);
-  opacity: 0.1;
   position: absolute;
-  left: 225px;
-  right: 225px;
   z-index: -1;
 }
 div#settingsBox {
@@ -67,11 +63,20 @@ img.option {
   cursor: pointer;
 }
 div#settingsBox > * {
+  display: inline-block;
   width: 75px;
   height: 75px;
+  font-size: 75px;
+  line-height: 75px;
+  text-align: center;
   margin: 10px 0;
+  color: #e9e9e9;
 }
 div#tempo {
+  font-size: 20px;
+  font-family: verdana;
+  line-height: initial;
+  height: initial;
   text-align: center;
 }
 div#tempo > input {
