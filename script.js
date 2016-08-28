@@ -207,6 +207,7 @@ $(function() {
     $("#tempoRange").trigger("input");
   }
   if(urlParam("m")) {
+    alert(urlParam("m"));
     if(urlParam("m") == "1")
       $("#melodyButton").click(); 
   }
