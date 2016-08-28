@@ -79,6 +79,14 @@ div#settingsBox > * {
   margin: 10px 0;
   color: #e9e9e9;
 }
+i#melodyButton > .fa-ban {
+  color: #e74c3c;
+  position: relative;
+  z-index: 2;
+}
+i#melodyButton > .fa-ban.noBan {
+  display: none;
+}
 div#tempo {
   font-size: 20px;
   font-family: verdana;
@@ -108,4 +116,5 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   background: #aaaaaa;
   margin-top: -5px;
+  cursor: pointer;
 }

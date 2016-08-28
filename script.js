@@ -15,7 +15,11 @@ $(function() {
     "VIb": ["iv","III"],
     "VIIb": ["i"]
   };
+  var playMelody = false;
   var playChord = function(note) {
+    new Audio("res/sound/" + note + ".mp3").play();
+    if(!playMelody)
+      return;
     var chord;
     switch(note) {
       case "I": chord = ["I","III","V"]; break;
@@ -26,11 +30,10 @@ $(function() {
       case "IV": chord = ["IV","VI","I2"]; break;
       case "iv": chord = ["IV","VIb","I2"]; break;
       case "V": chord = ["V","VII","II"]; break;
-      case "vi": chord = ["VI","IIb","III"]; break;
+      case "vi": chord = ["VI","I","III"]; break;
       case "VIb": chord = ["VIb","VII","IIIb"]; break;
       case "VIIb": chord = ["VIIb","II","IV"]; break;
     }
-    new Audio("res/sound/" + note + ".mp3").play();
     for(let i = 0; i < 3; i++) {
       setTimeout(function() {
         new Audio("res/sound/" + chord[Math.floor(Math.random()*3)] + ".wav").play();
@@ -126,6 +129,12 @@ $(function() {
     for(var i = elems.length-1; i >= 0; i--) {
       elems[i].setAttribute("data-index", i);
     }
+  });
+
+  // TOGGLE playMelody VARIABLE
+  $("#melodyButton").click(function() {
+    $(this).children().last().toggleClass("noBan");
+    playMelody = !playMelody;
   });
   
   // ATTEMPT TO USE THE API
