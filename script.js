@@ -58,7 +58,7 @@ $(function() {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
-  var extra = urlParam("e") && urlParam("e") == "1" ? 1 : 0;
+  var extra = urlParam("e") && urlParam("e") == "1" ? 1.5 : 0;
 
   // HANDLE CLICK OF OPTIONS
   $("#optionsBox").on("click", "img.option", function(event) {
